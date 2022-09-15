@@ -1,0 +1,67 @@
+﻿@model IEnumerable<RestaurantManagementSystem.Models.FoodItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodItemPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FoodCategory)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodItemPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoodCategory.FoodCategoryName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FoodItemId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FoodItemId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FoodItemId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
+
+<div class="card-columns">
+    @foreach (var fooditem in Model) {
+        <div class="card border border-danger" >
+            <div class="card-header font-weight-bold">
+                @fooditem.FoodItemName
+            </div>
+            <div class="card-body ">
+                @Html.DisplayNameFor(modelItem => fooditem.FoodItemPrice) : @fooditem.FoodItemPrice
+                <br />
+                @Html.DisplayNameFor(modelItem => fooditem.FoodCategory) : @fooditem.FoodCategory.FoodCategoryName
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@fooditem.FoodItemId">Edit</a>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@fooditem.FoodItemId">Details</a>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@fooditem.FoodItemId">Delete</a>
+            </div>
+        </div>
+    }
+</div>

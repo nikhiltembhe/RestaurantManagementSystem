@@ -1,0 +1,101 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome to Indian Michelin</h1>
+    <p>Learn about Michelin Star Restaurant <a href="https://blog.wego.com/india-michelin-star-restaurants/#:~:text=A%20Michelin%20Star%20is%20a,tire%20company%20%E2%80%93%20Michelin%20in%201900.">in India</a>.</p>
+</div>*@
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <h1 class="text-center">Welcome to Indian Michelin</h1>      
+    <p class="text-center">Learn about Michelin Star Restaurant <a href="https://blog.wego.com/india-michelin-star-restaurants/#:~:text=A%20Michelin%20Star%20is%20a,tire%20company%20%E2%80%93%20Michelin%20in%201900.">in India</a>.</p>
+  
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://axwwgrkdco.cloudimg.io/v7/__gmpics__/86f7ae8fccd64acf96fb262ffb3f582d?width=1000" alt="Los Angeles" width="1100" height="800">
+    </div>
+    <div class="carousel-item">
+      <img src="https://axwwgrkdco.cloudimg.io/v7/__gmpics__/0ed3cf7afd8944bfbc74383b2cbdd8f2?width=1000" alt="Chicago" width="1100" height="800">
+    </div>
+    <div class="carousel-item">
+      <img src="https://axwwgrkdco.cloudimg.io/v7/__gmpics__/02e89a01c4314d23a3591399292bf2b2?width=1000" alt="New York" width="1100" height="800">
+    </div>
+  </div>
+  
+  <!-- Left and right controls -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+</div>    
+</div>
+<section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h2 data-aos="fade-up">Enjoy Your Healthy<br>Delicious Food</h2>
+          <p data-aos="fade-up" data-aos-delay="100">From a Michelin Star Restaurant which serves food that tastes good and is affordable.</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a asp-area="ResMgmtSys" asp-controller="Orders" asp-action="Create" class="btn-book-a-table">Place Order</a>
+            @*<a asp-area="ResMgmtSys" asp-controller="FoodItems" asp-action="Create" class="btn-book-a-table">See our Menu</a>*@
+            <a href="https://www.youtube.com/watch?v=bIsbQTlYJVY" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="https://bootstrapmade.com/demo/templates/Yummy/assets/img/hero-img.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+<section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <h2>About Us</h2>
+          <p>Learn More <span>About Us</span></p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 position-relative about-img" style="background-image: url(https://bootstrapmade.com/demo/templates/Yummy/assets/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us position-absolute">
+              <h4>Book a Table</h4>
+              <p>+91 1025 25489</p>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                A Michelin Star is a global restaurant rating system from the Michelin Guide, which grades restaurants based on the calibre of the food served. The Michelin Guide was first produced by the French tire company – Michelin in 1900
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> One Star: The restaurant is considered “very good in its category” having a quality menu and prepares cuisine to a consistently high standard.</li>
+                <li><i class="bi bi-check2-all"></i> Two Stars: The restaurant has excellent cuisine delivered in a unique way, and has something exceptional to offer — it’s “worth a detour” to visit while traveling.</li>
+                <li><i class="bi bi-check2-all"></i> Three Stars: The restaurant has exceptional cuisine and thus “worth a special journey” just to visit.This restaurant serves distinct dishes that are executed to perfection.</li>
+              </ul>
+              <p>
+                So, plain and simple a Michelin star is a badge of honor, regardless of how many a restaurant receives (between one and three, with three being the highest caliber).
+              </p>
+
+              
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
