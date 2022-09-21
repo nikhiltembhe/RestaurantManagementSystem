@@ -57,11 +57,12 @@
                 <br />
                 @Html.DisplayNameFor(modelItem => fooditem.FoodCategory) : @fooditem.FoodCategory.FoodCategoryName
             </div>
-            @*<div class="card-footer">
-                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@fooditem.FoodItemId">Edit</a>
+            <div class="card-footer">
+                @*<a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@fooditem.FoodItemId">Edit</a>
                 <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@fooditem.FoodItemId">Details</a>
-                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@fooditem.FoodItemId">Delete</a>
-            </div>*@
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@fooditem.FoodItemId">Delete</a>*@
+                <a class="btn btn-outline-primary" asp-controller="Orders" asp-action="Create">Order Now</a>
+            </div>
         </div>
     }
 </div>

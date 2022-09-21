@@ -57,6 +57,15 @@ namespace RestaurantManagementSystem.Areas.ResMgmtSys.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FoodCategoryId,FoodCategoryName")] FoodCategory foodCategory)
         {
+            // Sanitize the data
+            foodCategory.FoodCategoryName = foodCategory.FoodCategoryName.Trim();
+
+            // Validation Checks - Server-side validation
+            bool duplicateExists = _context.FoodCategories.Any(c => c.FoodCategoryName == foodCategory.FoodCategoryName);
+            if (duplicateExists)
+            {
+                ModelState.AddModelError("FoodCategoryName", "Duplicate Category Found!");
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(foodCategory);
@@ -92,6 +101,15 @@ namespace RestaurantManagementSystem.Areas.ResMgmtSys.Controllers
             if (id != foodCategory.FoodCategoryId)
             {
                 return NotFound();
+            }
+            // Sanitize the data
+            foodCategory.FoodCategoryName = foodCategory.FoodCategoryName.Trim();
+
+            // Validation Checks - Server-side validation
+            bool duplicateExists = _context.FoodCategories.Any(c => c.FoodCategoryName == foodCategory.FoodCategoryName && c.FoodCategoryId != foodCategory.FoodCategoryId);
+            if (duplicateExists)
+            {
+                ModelState.AddModelError("FoodCategoryName", "Duplicate Category Found!");
             }
 
             if (ModelState.IsValid)

@@ -9,6 +9,12 @@
 <h1>Place Order</h1>
 <hr />
 <div class="row">
+    <div class="col"> <h5 class="text-danger">New User ?</h5> </div>
+</div>
+<a class="btn btn-outline-primary" asp-controller="Customers" asp-action="Create">Register</a>
+<br/>
+<br/>
+<div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -33,6 +39,7 @@
             <div class="form-group">
                 <label asp-for="CreatedOn" class="control-label"></label>
                 <input asp-for="CreatedOn" class="form-control" />
+                
                 <span asp-validation-for="CreatedOn" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
@@ -45,7 +52,7 @@
                 <select asp-for="WaiterId" class ="form-control" asp-items="ViewBag.WaiterId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input  type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -55,6 +62,18 @@
     <a asp-action="Index">Back to List</a>
 </div>*@
 
+
+@section HeadScripts {
+     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+}
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="//code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#CreatedOn" ).datepicker({ minDate: -20, maxDate: "+1M +10D" });
+        } );
+    </script>
 }

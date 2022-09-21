@@ -27,10 +27,10 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FoodCategoryId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FoodCategoryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FoodCategoryId">Delete</a>|
-                <a asp-area="ResMgmtSys" asp-controller="FoodItems" 
+                <a asp-action="Delete" asp-route-id="@item.FoodCategoryId">Delete</a>
+                @*<a asp-area="ResMgmtSys" asp-controller="FoodItems" 
                        asp-action="GetFoodsOfCategory" 
-                       asp-route-filterCategoryId="@item.FoodCategoryId">Manage Foods</a>
+                       asp-route-filterCategoryId="@item.FoodCategoryId">Manage Foods</a>*@
             </td>
         </tr>
 }

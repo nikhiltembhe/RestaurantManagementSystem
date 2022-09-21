@@ -63,9 +63,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Waiter.WaiterName)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.FoodItem.FoodItemPrice )
-            </td>
+            </td>*@
             <td>
                 @{ 
                     var cost = item.FoodItem.FoodItemPrice * item.OrderQuantity;

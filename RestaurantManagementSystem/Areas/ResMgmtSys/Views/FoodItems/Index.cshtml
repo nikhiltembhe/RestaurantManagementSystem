@@ -9,7 +9,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-@*<table class="table">
+<table class="table border border-danger">
     <thead>
         <tr>
             <th>
@@ -37,16 +37,19 @@
                 @Html.DisplayFor(modelItem => item.FoodCategory.FoodCategoryName)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FoodItemId">Edit</a> |
+                @*<a asp-action="Edit" asp-route-id="@item.FoodItemId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.FoodItemId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FoodItemId">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.FoodItemId">Delete</a>*@
+                <a class="btn btn-outline-primary" asp-action="Edit" asp-route-id="@item.FoodItemId">Edit</a>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.FoodItemId">Details</a>
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.FoodItemId">Delete</a>
             </td>
         </tr>
 }
     </tbody>
-</table>*@
+</table>
 
-<div class="card-columns">
+@*<div class="card-columns">
     @foreach (var fooditem in Model) {
         <div class="card border border-danger" >
             <div class="card-header font-weight-bold">
@@ -64,4 +67,4 @@
             </div>
         </div>
     }
-</div>
+</div>*@

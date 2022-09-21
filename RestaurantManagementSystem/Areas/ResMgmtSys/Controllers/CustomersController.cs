@@ -57,11 +57,23 @@ namespace RestaurantManagementSystem.Areas.ResMgmtSys.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("CustomerId,CustomerName,PhoneNumer,Email,Address")] Customer customer)
         {
+            // Sanitize the data
+            customer.CustomerName = customer.CustomerName.Trim();
+
+            // Validation Checks - Server-side validation
+            bool duplicateExists = _context.Customer.Any(c => c.CustomerName == customer.CustomerName);
+            if (duplicateExists)
+            {
+                ModelState.AddModelError("CustomerName", "Duplicate Category Found!");
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                //_logger.LogInformation($"Created a New Category: ID = {category.CategoryId} !");
+                //return RedirectToAction(nameof(Index));
+                return RedirectToAction("Create","Orders");
             }
             return View(customer);
         }
@@ -89,11 +101,20 @@ namespace RestaurantManagementSystem.Areas.ResMgmtSys.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("CustomerId,CustomerName,PhoneNumer,Email,Address")] Customer customer)
         {
+            // Validation Check if the CategoryId matches with the ID for the row to edit.
             if (id != customer.CustomerId)
             {
                 return NotFound();
             }
+            // Sanitize the data
+            customer.CustomerName = customer.CustomerName.Trim();
 
+            // Validation Checks - Server-side validation
+            bool duplicateExists = _context.Customer.Any(c => c.CustomerName == customer.CustomerName && c.CustomerId != customer.CustomerId);
+            if (duplicateExists)
+            {
+                ModelState.AddModelError("CustomerName", "Duplicate Category Found!");
+            }
             if (ModelState.IsValid)
             {
                 try

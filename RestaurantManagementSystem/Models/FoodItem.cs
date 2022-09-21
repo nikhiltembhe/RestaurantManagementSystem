@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace RestaurantManagementSystem.Models
 {
@@ -32,7 +33,7 @@ namespace RestaurantManagementSystem.Models
         [Required]
         public int FoodCategoryId { get; set; }
 
-
+        [JsonIgnore]
         [ForeignKey(nameof(FoodItem.FoodCategoryId))]
         public FoodCategory FoodCategory { get; set; }
 

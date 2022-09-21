@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/main.css" />
     <script src="~/js/main.js"></script>
+
+
+    @RenderSection("HeadScripts", required: false)
+
+   
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    
+    
 </head>
 <body>
     <header>
@@ -53,6 +61,8 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item"
                                    asp-area="ResMgmtSys" asp-controller="FoodItems" asp-action="Index">Configure Food we serve</a>
+                                   <a class="dropdown-item"
+                                   asp-area="ResMgmtSys" asp-controller="FoodCategories" asp-action="Index">Add more Categories</a>
                                 <a class="dropdown-item"
                                     asp-area="ResMgmtSys" asp-controller="Waiters" asp-action="Index">Configure Waiters</a>
                                 <div class="dropdown-divider"></div>
@@ -81,6 +91,7 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+ 
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)

@@ -23,7 +23,10 @@ namespace RestaurantManagementSystem.Areas.ResMgmtSys.Controllers
         // GET: ResMgmtSys/Orders
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Order.Include(o => o.Customer).Include(o => o.FoodItem).Include(o => o.Waiter);
+            var applicationDbContext = _context.Order
+                                        .Include(o => o.Customer)
+                                        .Include(o => o.FoodItem)
+                                        .Include(o => o.Waiter);
             return View(await applicationDbContext.ToListAsync());
         }
 
